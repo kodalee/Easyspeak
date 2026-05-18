@@ -2,7 +2,7 @@ name: Build and Attach JAR to Release
 
 on:
   release:
-    types: [released]
+    types: [released, created, prereleased, published]
 
 jobs:
   build:
