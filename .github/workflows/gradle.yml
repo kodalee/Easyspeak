@@ -1,4 +1,4 @@
-name: Build and Attach JAR to Release
+name: JAR Build
 
 on:
   release:
