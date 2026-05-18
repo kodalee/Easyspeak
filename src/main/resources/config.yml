@@ -1,0 +1,51 @@
+# server name to put in chat logs
+server: global
+
+database:
+    # Available options:
+    # - H2
+    # - MARIADB
+    type: H2
+
+    mariadb:
+        host: localhost
+        port: 3306
+        database: easyspeak
+        username: root
+        password: password
+
+    h2:
+        file: easyspeak
+
+private_messages:
+    # Format shown to the sender. PlaceholderAPI has the context of the recipient.
+    sender_format: "<gray>(<gold>You<gray> -> <white>%luckperms_prefix% <gold>%player_name%<gray>) <white>%message%"
+    # Format shown to the recipient. PlaceholderAPI has the context of the sender.
+    recipient_format: "<gray>(<white>%luckperms_prefix% <gold>%player_name%<gray> -> <gold>You<gray>) <white>%message%"
+
+settings:
+    # The format of the chat message. You can use PlaceholderAPI here.
+    format: "%luckperms_prefix% %player_name%: %_message%"
+
+    # Is chat enabled? (This should be true unless you want a staff member to /togglechat on restart)
+    enabled: true
+
+    # Slow mode default time in seconds. Set to 0 to disable slow mode.
+    slow_mode_time: 3
+
+    # Can certain players bypass slow mode? (Requires permission easyspeak.slowmode.bypass)
+    bypass_slow_mode: true
+
+    # Enable usage of color codes in chat? (Requires permission easyspeak.colors)
+    allow_colors: true
+
+messages:
+    common:
+        no_permission: "<red>You don't have permission to use this command."
+    event:
+        chat_slow: "\n<red>You can chat again after <bold>%duration%</bold> second(s)\n<yellow>Tip<gray>: If you have the <white></white> rank or higher, you'll bypass this restriction.\n"
+        chat_disabled: "<red>Chat is currently disabled. Try again in a few minutes.</red>"
+    broadcast:
+        chat_toggled_off: "<yellow>Global chat has been <red>disabled</red>."
+        chat_toggled_on: "<yellow>Global chat has been <green>enabled</green>."
+        chat_cleared: "<gray>Chat has been cleared. This is usually done to prevent players from seeing inappropriate content. Previous chats may still be visible in-game depending on your client. You can find previous chats in your game logs.\n"

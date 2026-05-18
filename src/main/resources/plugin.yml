@@ -1,0 +1,92 @@
+name: Easyspeak
+version: '1.0'
+main: com.github.kodalee.easyspeak.Easyspeak
+api-version: '1.21'
+prefix: Easyspeak
+load: STARTUP
+authors: [ Koda ]
+description: EasySpeak is a lightweight chat management plugin designed to give server admins control over player communication without the added headache.
+website: https://github.com/kodalee/easyspeak
+
+depend: [ PlaceholderAPI, SignedVelocity ]
+
+libraries:
+  - com.zaxxer:HikariCP:5.1.0
+  - org.mariadb.jdbc:mariadb-java-client:3.4.1
+  - com.h2database:h2:2.2.224
+
+commands:
+  easyspeakreload:
+    aliases: [ esreload ]
+    usage: /<command>
+    permission: easyspeak.reload
+  togglechat:
+    aliases: [ tc ]
+    usage: /<command>
+    permission: easyspeak.togglechat
+    description: Enable or disable global chat on the server you're on.
+  slowchat:
+    aliases: [ slow ]
+    permission: easyspeak.slowchat
+    description: Set slow chat's state and duration.
+  clearchat:
+    aliases: [ cc ]
+    permission: easyspeak.clearchat
+    description: Clears chat for all players.
+  chathistory:
+    aliases: [ chist ]
+    usage: /<command> <player> [page] | /<command> -c <messageId>
+    permission: easyspeak.chathistory
+    description: View a player's stored chat history with clickable context.
+  pm:
+    aliases: [ m, w, message, msg, whisper, tell ]
+    usage: /<command> <player> <message>
+    permission: easyspeak.pm
+    description: Send a private message to another player.
+  reply:
+    aliases: [ r ]
+    usage: /<command> <message>
+    permission: easyspeak.reply
+    description: Reply to your most recent private message.
+  ignore:
+    usage: /<command> <player> | /<command> list
+    permission: easyspeak.ignore
+    description: Toggle ignoring a player so their chat and PMs don't reach you.
+
+permissions:
+  easyspeak.reload:
+    description: Reloads the plugin's configuration.
+    default: false
+  easyspeak.togglechat:
+    description: Enable or disable global chat on the server you're on.
+    default: false
+  easyspeak.togglechat.bypass:
+    description: Bypass global chat's disabled state.
+    default: false
+  easyspeak.slowchat:
+    description: Set slow chat's state and duration.
+    default: false
+  easyspeak.slowchat.bypass:
+    description: Bypass global chat's slowness.
+    default: false
+  easyspeak.clearchat:
+    description: Clears chat for all players.
+    default: false
+  easyspeak.clearchat.bypass:
+    description: Bypass having chat cleared for yourself.
+    default: false
+  easyspeak.chathistory:
+    description: Look up stored player chat history and view message context.
+    default: false
+  easyspeak.pm:
+    description: Send private messages to other players.
+    default: true
+  easyspeak.reply:
+    description: Reply to your most recent private message.
+    default: true
+  easyspeak.ignore:
+    description: Manage your personal ignore list.
+    default: true
+  easyspeak.colors:
+    description: Use legacy color codes (&a, &b, ...) in chat and PMs.
+    default: false
