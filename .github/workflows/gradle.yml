@@ -2,13 +2,14 @@ name: Build and Attach JAR to Release
 
 on:
   release:
-    types: [created]
+    types: [released, created, prereleased, published]
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write   # needed to upload assets to the release
+      contents: write
     steps:
     - uses: actions/checkout@v4
 
@@ -27,7 +28,14 @@ jobs:
     - name: Build JAR with Gradle Wrapper
       run: ./gradlew jar
 
+    - name: Rename JAR
+      run: |
+        TITLE="${{ github.event.release.name }}"
+        SAFE_TITLE="${TITLE// /_}"
+        mkdir -p release-artifacts
+        cp build/libs/*.jar "release-artifacts/Easyspeak-${SAFE_TITLE}.jar"
+
     - name: Upload JAR to release
       uses: softprops/action-gh-release@v2
       with:
-        files: build/libs/*.jar
+        files: release-artifacts/*.jar
