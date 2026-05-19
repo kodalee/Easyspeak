@@ -8,7 +8,8 @@ authors: [ Koda ]
 description: EasySpeak is a lightweight chat management plugin designed to give server admins control over player communication without the added headache.
 website: https://github.com/kodalee/easyspeak
 
-depend: [ PlaceholderAPI, SignedVelocity ]
+depend: [ PlaceholderAPI ]
+softdepend: [ SignedVelocity ]
 
 libraries:
   - com.zaxxer:HikariCP:5.1.0
