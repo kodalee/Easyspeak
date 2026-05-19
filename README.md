@@ -22,7 +22,6 @@ A lightweight (only around ~55 KB!) chat management plugin designed to give serv
 
 ## Preview
 ![Formatted chat, simple](https://cdn.modrinth.com/data/cached_images/ea9813935df1e7e932e72ffc8cb4c965e63fdaf1.png)
-![Chat history view](https://cdn.modrinth.com/data/cached_images/4582975f08f94e207aae62e25efd7fe2dd1aedaa.png)
 ![Chat context view](https://cdn.modrinth.com/data/cached_images/c874f4d7619ae301973d477abf170451d2fc690f.png)
 
 ## Commands & Permissions
